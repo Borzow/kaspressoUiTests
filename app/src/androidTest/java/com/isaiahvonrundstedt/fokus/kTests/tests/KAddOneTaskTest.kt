@@ -1,9 +1,9 @@
-package com.isaiahvonrundstedt.fokus.tests
+package com.isaiahvonrundstedt.fokus.kTests.tests
 
 import androidx.test.ext.junit.rules.activityScenarioRule
 import com.isaiahvonrundstedt.fokus.features.core.activities.MainActivity
-import com.isaiahvonrundstedt.fokus.screens.MainScreen
-import com.isaiahvonrundstedt.fokus.screens.TaskScreen
+import com.isaiahvonrundstedt.fokus.kTests.screens.MainScreen
+import com.isaiahvonrundstedt.fokus.kTests.screens.TaskScreen
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
@@ -26,7 +26,7 @@ class KAddOneTaskTest:TestCase (){
             }
             step("""Нажимаем на кнопку создания задачи(+)."""){
                 MainScreen{
-                    buttonStatusCheckAndClick(saveButton,needClick = true)
+                    buttonIsDisplayedAndClickable(saveButton,needClick = true)
                 }
                 step("""Открыт экран создания задачи, на экране:
                 - Поле "Task Name"
@@ -42,16 +42,16 @@ class KAddOneTaskTest:TestCase (){
                         taskNameInputField.isFocused()
                         taskNameInputField.edit.hasHint("Task Name")
 
-                        switchCheckAndClick(finishedMarkSwitch,
+                        switchIsDisplayedAndClickable(finishedMarkSwitch,
                             active = false,
                             needClick = false
                         )
 
-                        buttonCheckAndClick(selectEndDateButton,false)
+                        buttonIsDisplayedAndClickable(selectEndDateButton,false)
 
-                        buttonCheckAndClick(subjectButton,false)
+                        buttonIsDisplayedAndClickable(subjectButton,false)
 
-                        switchCheckAndClick(markAsImportantSwitch,
+                        switchIsDisplayedAndClickable(markAsImportantSwitch,
                             active = false,
                             needClick = false
                         )
@@ -63,7 +63,7 @@ class KAddOneTaskTest:TestCase (){
                         resourceAddChip.isDisplayed()
                         resourceAddChip.isClickable()
 
-                        buttonCheckAndClick(saveButton,false)
+                        buttonIsDisplayedAndClickable(saveButton,false)
                     }
                 }
             }
@@ -74,31 +74,31 @@ class KAddOneTaskTest:TestCase (){
                 step("""Клавиатура скрыта, текст в поле Task Name введен"""){
                     TaskScreen{
                         taskNameInputField.edit.hasText(taskNameText)
-                        buttonCheckAndClick(saveButton)
+                        buttonIsDisplayedAndClickable(saveButton)
                     }
                 }
             }
             step("""Нажимаем на кнопку "Save"."""){
                 TaskScreen{
-                    buttonCheckAndClick(saveButton,true)
+                    buttonIsDisplayedAndClickable(saveButton,true)
                 }
                 step("""Переходим на экран "Your Tasks", на экране:
                 - Заголовок Your Tasks
                 - Кнопка Бургер в тулБаре
                 - Кнопка "More options"(три точки)
                 - Созданая задача "Test 1"
-                - Кнопкой "Save""""){
+                - Кнопка "Save""""){
                     MainScreen{
                         toolBarText.isDisplayed()
-                        buttonStatusCheckAndClick(toolBarBurgerButton)
-                        buttonStatusCheckAndClick(toolBarMoreOptionsButton)
+                        buttonIsDisplayedAndClickable(toolBarBurgerButton)
+                        buttonIsDisplayedAndClickable(toolBarMoreOptionsButton)
                         taskRecycler{
                             children<MainScreen.TaskItems> {
                                 taskName.isDisplayed()
                                 taskName.hasText(taskNameText)
                             }
                         }
-                        buttonStatusCheckAndClick(saveButton)
+                        buttonIsDisplayedAndClickable(saveButton)
                     }
                 }
             }

@@ -1,6 +1,7 @@
-package com.isaiahvonrundstedt.fokus.screens
+package com.isaiahvonrundstedt.fokus.kTests.screens
 
 import com.isaiahvonrundstedt.fokus.R
+import com.isaiahvonrundstedt.fokus.kTests.FrequencyTestChecks
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.chipgroup.KChipGroup
 import io.github.kakaocup.kakao.edit.KEditText
@@ -9,7 +10,7 @@ import io.github.kakaocup.kakao.switch.KSwitch
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.toolbar.KToolbar
 
-object TaskScreen:KScreen<TaskScreen>() {
+object TaskScreen:KScreen<TaskScreen>(),FrequencyTestChecks {
     override val layoutId: Int?=null
     override val viewClass: Class<*>?=null
 
@@ -27,17 +28,4 @@ object TaskScreen:KScreen<TaskScreen>() {
     val resourceAddChip = KChipGroup{withId(R.id.addActionChip)}
 
     val saveButton = KButton { withId(R.id.actionButton) }
-
-    fun buttonCheckAndClick(button:KButton,needClick:Boolean = false){
-        button.isDisplayed()
-        button.isClickable()
-        if (needClick) button.click()
-    }
-    fun switchCheckAndClick(switch:KSwitch,active:Boolean = false, needClick:Boolean = false){
-        switch.isDisplayed()
-        switch.isClickable()
-        if (active) { switch.isChecked()
-        } else switch.isNotChecked()
-        if (needClick) switch.click()
-    }
 }

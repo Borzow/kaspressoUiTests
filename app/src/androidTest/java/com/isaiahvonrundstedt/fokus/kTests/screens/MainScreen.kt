@@ -1,11 +1,10 @@
-package com.isaiahvonrundstedt.fokus.screens
-
-
+package com.isaiahvonrundstedt.fokus.kTests.screens
 
 import android.view.View
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.toolbar.KToolbar
 import com.isaiahvonrundstedt.fokus.R
+import com.isaiahvonrundstedt.fokus.kTests.FrequencyTestChecks
 import io.github.kakaocup.kakao.check.KCheckBox
 import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.recycler.KRecyclerView
@@ -13,8 +12,7 @@ import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 
-
-object MainScreen: KScreen<MainScreen>() {
+object MainScreen: KScreen<MainScreen>(),FrequencyTestChecks{
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
@@ -37,14 +35,9 @@ object MainScreen: KScreen<MainScreen>() {
 
     val taskRecycler = KRecyclerView(
         { withId(R.id.recyclerView) },
-        { itemType(::TaskItems) }
+        { itemType(MainScreen::TaskItems) }
     )
 
-    fun buttonStatusCheckAndClick(button:KButton,needClick:Boolean = false){
-        button.isDisplayed()
-        button.isClickable()
-        if(needClick) button.click()
-    }
     class TaskItems(parent: Matcher<View>) :KRecyclerItem<TaskItems>(parent){
         val testCheckBox = KCheckBox(parent){withId(R.id.checkBox)}
         val taskName = KTextView(parent){withId(R.id.taskNameView)}
