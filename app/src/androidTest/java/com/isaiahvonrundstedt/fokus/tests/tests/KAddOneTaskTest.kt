@@ -42,17 +42,19 @@ class KAddOneTaskTest:TestCase (){
                         taskNameInputField.isFocused()
                         taskNameInputField.edit.hasHint("Task Name")
 
-                        finishedMarkSwitch.isDisplayed()
-                        finishedMarkSwitch.isClickable()
-                        finishedMarkSwitch.isNotChecked()
+                        switchCheckAndClick(finishedMarkSwitch,
+                            active = false,
+                            needClick = false
+                        )
 
-                        buttonCheckAndClick(selectEndDateButton)
+                        buttonCheckAndClick(selectEndDateButton,false)
 
-                        buttonCheckAndClick(subjectButton)
+                        buttonCheckAndClick(subjectButton,false)
 
-                        markAsImportantSwitch.isDisplayed()
-                        markAsImportantSwitch.isClickable()
-                        markAsImportantSwitch.isNotChecked()
+                        switchCheckAndClick(markAsImportantSwitch,
+                            active = false,
+                            needClick = false
+                        )
 
                         subTaskNameEditInputField.isDisplayed()
                         subTaskNameEditInputField.isNotFocused()
@@ -61,14 +63,13 @@ class KAddOneTaskTest:TestCase (){
                         resourceAddChip.isDisplayed()
                         resourceAddChip.isClickable()
 
-                        buttonCheckAndClick(saveButton)
+                        buttonCheckAndClick(saveButton,false)
                     }
                 }
             }
             step("""В поле Task Name набираем "Test 1", скрываем клавиатуру."""){
                 TaskScreen{
                     taskNameInputField.edit.replaceText(taskNameText)
-                    // настроить ADB в android studio device.keyboard.sendEvent(android.view.KeyEvent.KEYCODE_BACK)
                 }
                 step("""Клавиатура скрыта, текст в поле Task Name введен"""){
                     TaskScreen{
@@ -89,7 +90,7 @@ class KAddOneTaskTest:TestCase (){
                 - Кнопкой "Save""""){
                     MainScreen{
                         toolBarText.isDisplayed()
-                        // buttonStatusCheckAndClick(toolBarBurgerButton)
+                        buttonStatusCheckAndClick(toolBarBurgerButton)
                         buttonStatusCheckAndClick(toolBarMoreOptionsButton)
                         taskRecycler{
                             children<MainScreen.TaskItems> {

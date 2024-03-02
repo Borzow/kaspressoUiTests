@@ -33,4 +33,11 @@ object TaskScreen:KScreen<TaskScreen>() {
         button.isClickable()
         if (needClick) button.click()
     }
+    fun switchCheckAndClick(switch:KSwitch,active:Boolean = false, needClick:Boolean = false){
+        switch.isDisplayed()
+        switch.isClickable()
+        if (active) { switch.isChecked()
+        } else switch.isNotChecked()
+        if (needClick) switch.click()
+    }
 }

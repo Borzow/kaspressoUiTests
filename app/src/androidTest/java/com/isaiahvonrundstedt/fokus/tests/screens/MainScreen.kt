@@ -19,9 +19,10 @@ object MainScreen: KScreen<MainScreen>() {
     override val viewClass: Class<*>? = null
 
     val toolBar = KToolbar {withId(R.id.toolbar)}
-//    val toolBarBurgerButton = KButton{
-//        withParent { this@MainScreen.toolBar }
-//    }
+    val toolBarBurgerButton = KButton{
+        withParent { this@MainScreen.toolBar }
+        withContentDescription("More")
+    }
     val toolBarMoreOptionsButton = KButton{
         withContentDescription("More options")
         withParent { this@MainScreen.toolBar }

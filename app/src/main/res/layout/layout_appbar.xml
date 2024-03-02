@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_scrollFlags="snap"
+        app:navigationContentDescription="@string/menu_more"
+        app:navigationIcon="@drawable/ic_outline_menu_24"
         tools:title="@string/activity_tasks" />
 
 </com.google.android.material.appbar.AppBarLayout>
