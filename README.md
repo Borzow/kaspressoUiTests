@@ -18,4 +18,4 @@
 ### Приложенение для тренировки было взято тут: https://github.com/icabetong/fokus-android 
 #### (Хвала свободному ПО ＼(＾▽＾)／ )
 
-## Более дитальная информация обо мне, тут: https://github.com/Borzow/Borzow
+## Более детальная информация обо мне, тут: https://github.com/Borzow/Borzow
