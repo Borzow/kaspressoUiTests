@@ -14,7 +14,7 @@ object TaskScreen:KScreen<TaskScreen>(),FrequencyTestChecks {
     override val layoutId: Int?=null
     override val viewClass: Class<*>?=null
 
-    val toolBar = KToolbar {withId(R.id.toolbar)}
+     val toolBar = KToolbar {withId(R.id.toolbar)}
     val toolBarMoreOptionsButton = KButton{
         withContentDescription("More options")
         withParent { this@TaskScreen.toolBar }
