@@ -11,42 +11,42 @@ object NavigateScreen : KScreen<NavigateScreen>(), FrequencyTestChecks {
     override val viewClass: Class<*>? = null
 
     val menuTitle = KTextView { withId(R.id.menuTitleView) }
-    val itemTask = KButton() {
+    val itemTask = KButton {
         withId(R.id.navigation_tasks)
         withDescendant {
             withId(R.id.design_menu_item_text)
             withText("Tasks")
         }
     }
-    val itemEvents = KButton() {
+    val itemEvents = KButton {
         withId(R.id.navigation_events)
         withDescendant {
             withId(R.id.design_menu_item_text)
             withText("Events")
         }
     }
-    val itemSubjects = KButton() {
+    val itemSubjects = KButton {
         withId(R.id.navigation_subjects)
         withDescendant {
             withId(R.id.design_menu_item_text)
             withText("Subjects")
         }
     }
-    val itemLogs = KButton() {
+    val itemLogs = KButton {
         withId(R.id.navigation_logs)
         withDescendant {
             withId(R.id.design_menu_item_text)
             withText("Logs")
         }
     }
-    val itemSettings = KButton() {
+    val itemSettings = KButton {
         withId(R.id.navigation_settings)
         withDescendant {
             withId(R.id.design_menu_item_text)
             withText("Settings")
         }
     }
-    val itemAbout = KButton() {
+    val itemAbout = KButton {
         withId(R.id.navigation_about)
         withDescendant {
             withId(R.id.design_menu_item_text)

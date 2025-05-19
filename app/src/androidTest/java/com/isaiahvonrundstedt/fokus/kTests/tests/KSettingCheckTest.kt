@@ -16,11 +16,7 @@ class KSettingCheckTest : TestCase() {
 
     @Test
     fun test() {
-        before {
-
-        }.after {
-
-        }.run {
+        run {
             step("""Предусловия""") {
                 MainScreen {
                     noTaskText.isDisplayed()

@@ -16,7 +16,7 @@ object MainScreen : KScreen<MainScreen>(), FrequencyTestChecks {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val toolBar = KToolbar { withId(R.id.toolbar) }
+    private val toolBar = KToolbar { withId(R.id.toolbar) }
     val toolBarBurgerButton = KButton {
         withParent { this@MainScreen.toolBar }
         withContentDescription("More")
@@ -29,7 +29,7 @@ object MainScreen : KScreen<MainScreen>(), FrequencyTestChecks {
         withText("Your Tasks")
         withParent { this@MainScreen.toolBar }
     }
-    val noTaskText = KTextView { withText("No Pending Tasks") }
+    val noTaskText = KTextView { withText(R.string.empty_view_no_tasks_title) }
     val noTaskSubTitleText =
         KTextView { withText("You currently have no pending tasks. If you have one, add it using the button below.") }
     val saveButton = KButton { withId(R.id.actionButton) }
